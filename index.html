@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Millbrook Chronicle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #767676;
+            --border-color: #e0e0e0;
+            --bg-primary: #fafafa;
+            --bg-accent: #f0f0f0;
+            --accent-color: #8b0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .masthead {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            background: white;
+        }
+
+        .masthead-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .masthead-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .masthead-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 2px solid var(--text-primary);
+            padding: 0.75rem 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .lead-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .lead-story {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lead-image {
+            background: var(--bg-accent);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .lead-content h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .lead-content .byline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .lead-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-stories article {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-stories article:last-child {
+            border-bottom: none;
+        }
+
+        .main-stories h2 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-stories h2 a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .main-stories h2 a:hover {
+            color: var(--accent-color);
+        }
+
+        .main-stories .byline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .main-stories p {
+            color: var(--text-secondary);
+        }
+
+        .sidebar {
+            padding-left: 2rem;
+            border-left: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding-top: 2rem;
+            }
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+        }
+
+        .sidebar-section li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-section li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-section a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .sidebar-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .breaking-bar {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .breaking-bar span {
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .category-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="breaking-bar">
+        <span>Breaking:</span> Federal Compliance Office announces expanded operations in tri-county area through November
+    </div>
+
+    <header class="masthead">
+        <div class="masthead-date">Tuesday, October 15, 2028</div>
+        <h1 class="masthead-title">The Millbrook Chronicle</h1>
+        <p class="masthead-tagline">Serving the Millbrook Community Since 1892</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Local</a></li>
+            <li><a href="#">Nation</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Opinion</a></li>
+            <li><a href="#">Community</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="lead-story">
+            <div class="lead-image">
+                [Image: Municipal Building at dusk]
+            </div>
+            <div class="lead-content">
+                <span class="category-tag">Local Government</span>
+                <h1>Council Deadlocked on Compliance Cooperation Resolution</h1>
+                <p class="byline">By Margaret Chen | October 15, 2028</p>
+                <p>A proposed resolution that would limit Millbrook city resources from being used in Federal Compliance Office operations failed to reach a vote Tuesday night after three hours of heated testimony from residents on both sides of the issue.</p>
+                <p>Council members Garcia and Thompson expressed support for the measure, while members Bradley and Kowalski argued it would put the city at risk of losing federal funding. Mayor Richardson has not indicated which way she would vote.</p>
+                <p>"This isn't about politics," said resident Ana Morales, who spoke during public comment. "This is about whether my neighbors can walk to the grocery store."</p>
+            </div>
+        </section>
+
+        <section class="section-grid">
+            <div class="main-stories">
+                <article>
+                    <span class="category-tag">Technology</span>
+                    <h2><a href="#">AI Adoption Surges Among Local Small Businesses, But Workers Express Concerns</a></h2>
+                    <p class="byline">By David Park | October 15, 2028</p>
+                    <p>Nearly 60% of Millbrook businesses with fewer than 50 employees now use some form of AI assistant, according to a new Chamber of Commerce survey—up from just 12% two years ago. But workers at several local companies say the technology is being used to monitor productivity and flag "anomalies" in ways that feel invasive.</p>
+                </article>
+
+                <article>
+                    <span class="category-tag">Community</span>
+                    <h2><a href="#">The Gathering on Mill Street Sees Record Attendance Amid Uncertainty</a></h2>
+                    <p class="byline">By Sarah Williams | October 14, 2028</p>
+                    <p>Father Thomas Carroll says he's never seen the pews so full. "People are looking for community," he said after Sunday services that drew over 400 attendees—nearly double the usual number. The congregation has also quietly expanded its emergency assistance fund, though Carroll declined to discuss specifics.</p>
+                </article>
+
+                <article>
+                    <span class="category-tag">Labor</span>
+                    <h2><a href="#">Workers' Collective Votes to Maintain Neutrality on Compliance Issues</a></h2>
+                    <p class="byline">By James Morrison | October 14, 2028</p>
+                    <p>In a contentious meeting Saturday, members of Local 847 of the Workers' Collective voted 234-189 to maintain the union's official neutrality on immigration enforcement issues. The decision disappointed some members who had pushed for a solidarity resolution, while others argued the union should focus on workplace issues.</p>
+                </article>
+
+                <article>
+                    <span class="category-tag">Public Safety</span>
+                    <h2><a href="#">City Watch Chief Addresses Confusion Over Federal Coordination</a></h2>
+                    <p class="byline">By Robert Torres | October 13, 2028</p>
+                    <p>Police Chief Diana Oyelaran held a press conference Friday to clarify the department's relationship with federal agencies after social media posts claimed local officers were participating in FCO operations. "Our officers are focused on local public safety," Oyelaran said. "We are not conducting compliance enforcement." She declined to say whether the department shares information with federal agencies.</p>
+                </article>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Most Read</h3>
+                    <ul>
+                        <li><a href="#">What to know about your rights during a compliance check</a></li>
+                        <li><a href="#">Eastside grocery store closes after 40 years</a></li>
+                        <li><a href="#">Election 2028: Where the candidates stand on AI regulation</a></li>
+                        <li><a href="#">School board approves AI tutoring pilot program</a></li>
+                        <li><a href="#">Opinion: We need to talk about what's happening on 4th Street</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Community Calendar</h3>
+                    <ul>
+                        <li><a href="#">Know Your Rights Workshop — Oct 17, 7pm, Mill Street Community Center</a></li>
+                        <li><a href="#">City Council Meeting — Oct 22, 6pm, Municipal Building</a></li>
+                        <li><a href="#">Millbrook Harvest Festival — Oct 26-27, Downtown</a></li>
+                        <li><a href="#">Early Voting Begins — Oct 28</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Weather</h3>
+                    <p style="color: var(--text-secondary);">
+                        <strong>Today:</strong> Partly cloudy, high 58°F<br>
+                        <strong>Tonight:</strong> Clear, low 42°F<br>
+                        <strong>Tomorrow:</strong> Sunny, high 62°F
+                    </p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2028 The Millbrook Chronicle. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">A publication serving Millbrook since 1892.</p>
+    </footer>
+</body>
+</html>
