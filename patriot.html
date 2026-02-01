@@ -6,15 +6,17 @@
     <title>The Patriot Wire</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --text-primary: #1a1a1a;
             --text-light: #fff;
             --accent-red: #bf0a30;
             --accent-blue: #002868;
+            --accent-gold: #ffc72c;
             --bg-dark: #1a1a1a;
             --bg-light: #f5f5f5;
+            --border-color: #ddd;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,76 +28,101 @@
             line-height: 1.5;
         }
 
-        .top-bar {
-            background: var(--accent-red);
-            color: white;
+        .ticker {
+            background: var(--bg-dark);
+            color: var(--accent-gold);
             padding: 0.5rem 1rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            display: flex;
-            justify-content: space-between;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         .masthead {
-            background: var(--bg-dark);
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #001a4d 100%);
             color: white;
-            padding: 1rem;
-            text-align: center;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .masthead-title {
             font-family: 'Oswald', Impact, sans-serif;
-            font-size: 2.75rem;
+            font-size: 2.2rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.03em;
         }
 
-        .masthead-title span {
-            color: var(--accent-red);
+        .masthead-title span { color: var(--accent-red); }
+
+        .masthead-right {
+            text-align: right;
+            font-size: 0.75rem;
         }
 
         .masthead-tagline {
-            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            opacity: 0.8;
-            margin-top: 0.25rem;
         }
 
         nav {
-            background: var(--accent-blue);
-            padding: 0.75rem 1rem;
+            background: var(--accent-red);
+            padding: 0;
+            overflow-x: auto;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2rem;
         }
 
+        nav li { border-right: 1px solid rgba(255,255,255,0.2); }
+        nav li:last-child { border-right: none; }
+
         nav a {
+            display: block;
             color: white;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            padding: 0.75rem 1.25rem;
+            white-space: nowrap;
         }
 
-        nav a:hover { text-decoration: underline; }
+        nav a:hover { background: rgba(0,0,0,0.2); }
 
         .breaking {
-            background: var(--accent-red);
-            color: white;
-            padding: 0.75rem 1rem;
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            padding: 0.6rem 1rem;
             font-weight: 700;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .breaking span {
-            animation: pulse 2s infinite;
+        .breaking-label {
+            background: var(--accent-red);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
@@ -104,75 +131,176 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5rem 1rem;
-        }
-
-        .lead-story {
-            background: white;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .lead-story-image {
-            background: var(--bg-dark);
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-
-        .lead-story-content {
             padding: 1.5rem;
         }
 
-        .lead-story h1 {
-            font-family: 'Oswald', Impact, sans-serif;
-            font-size: 2rem;
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-main {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            background: linear-gradient(45deg, #333 0%, #555 100%);
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .hero-image::after {
+            content: 'EXCLUSIVE';
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            background: var(--accent-red);
+            color: white;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .hero-content {
+            padding: 1.25rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'Roboto Condensed', 'Oswald', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.15;
             margin-bottom: 0.75rem;
         }
 
-        .lead-story p {
-            font-size: 1.05rem;
+        .hero-content p {
+            font-size: 1rem;
             color: #444;
+            margin-bottom: 0.5rem;
         }
 
-        .lead-story .byline {
-            font-size: 0.8rem;
+        .hero-content .byline {
+            font-size: 0.75rem;
             color: #888;
-            margin-top: 0.75rem;
+        }
+
+        .hero-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sidebar-card {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .sidebar-card .label {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+
+        .sidebar-card h3 a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .sidebar-card h3 a:hover { color: var(--accent-red); }
+
+        /* Grid Sections */
+        .section-header {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: white;
+            background: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 1em;
+            background: var(--accent-red);
         }
 
         .story-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-
-        @media (max-width: 768px) {
-            .story-grid { grid-template-columns: 1fr; }
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .story-card {
             background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card-image {
+            background: #ddd;
+            height: 120px;
         }
 
         .story-card-content {
             padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card .label {
+            display: inline-block;
+            background: var(--accent-red);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            margin-bottom: 0.4rem;
+            align-self: flex-start;
         }
 
         .story-card h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
-            line-height: 1.3;
+            line-height: 1.25;
             margin-bottom: 0.5rem;
         }
 
@@ -184,70 +312,177 @@
         .story-card h2 a:hover { color: var(--accent-red); }
 
         .story-card p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #555;
+            flex: 1;
         }
 
-        .category-label {
-            display: inline-block;
-            background: var(--accent-red);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 0.2rem 0.5rem;
-            margin-bottom: 0.5rem;
+        /* Opinion Banner */
+        .opinion-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .section-header {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent-blue);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--accent-blue);
-        }
-
-        .opinion-banner {
+        .opinion-featured {
             background: var(--accent-blue);
             color: white;
             padding: 1.5rem;
-            margin-top: 2rem;
         }
 
-        .opinion-banner h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
+        .opinion-featured .label {
+            background: var(--accent-red);
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 700;
             text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .opinion-featured h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            line-height: 1.2;
             margin-bottom: 0.5rem;
         }
 
-        .opinion-banner .author {
+        .opinion-featured .author {
             font-size: 0.85rem;
             opacity: 0.9;
+            margin-bottom: 0.75rem;
         }
+
+        .opinion-featured p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .trending {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .trending h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-red);
+        }
+
+        .trending ol {
+            list-style: none;
+            counter-reset: trending;
+        }
+
+        .trending li {
+            counter-increment: trending;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .trending li:last-child { border-bottom: none; }
+
+        .trending li::before {
+            content: counter(trending);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            line-height: 1;
+        }
+
+        .trending a {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .trending a:hover { color: var(--accent-red); }
 
         footer {
             background: var(--bg-dark);
             color: white;
             text-align: center;
             padding: 1.5rem;
-            margin-top: 2rem;
             font-size: 0.8rem;
+        }
+
+        footer .tagline {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+            .hero-sidebar {
+                flex-direction: row;
+            }
+            .story-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .masthead-title { font-size: 1.8rem; }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .masthead {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            .masthead-right { text-align: center; }
+            .hero-sidebar {
+                flex-direction: column;
+            }
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+            .opinion-section {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 { font-size: 1.4rem; }
+            nav ul { justify-content: flex-start; }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .container { padding: 1rem 0.75rem; }
+            .masthead-title { font-size: 1.5rem; }
+            .breaking { font-size: 0.85rem; flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <span>Tuesday, October 15, 2028</span>
-        <span>AMERICA'S NEWS SOURCE</span>
+    <div class="ticker">
+        <span class="ticker-content">
+            MARKETS: DOW +127 ● S&P +0.4% ● NASDAQ +0.6% ● GOLD $2,847 ● OIL $78.34 ● 
+            ELECTION 2028: 21 DAYS TO GO ● EARLY VOTING NOW OPEN IN 18 STATES ● 
+            FCO OPERATIONS EXPANDED TO 12 NEW STATES ●
+        </span>
     </div>
 
     <header class="masthead">
         <h1 class="masthead-title">The <span>Patriot</span> Wire</h1>
-        <p class="masthead-tagline">Truth • Freedom • America</p>
+        <div class="masthead-right">
+            <div>Tuesday, October 15, 2028</div>
+            <div class="masthead-tagline">Truth • Freedom • America</div>
+        </div>
     </header>
 
     <nav>
@@ -255,111 +490,131 @@
             <li><a href="#">Politics</a></li>
             <li><a href="#">Nation</a></li>
             <li><a href="#">Economy</a></li>
-            <li><a href="#">Opinion</a></li>
             <li><a href="#">Faith</a></li>
+            <li><a href="#">Opinion</a></li>
             <li><a href="#">Local</a></li>
+            <li><a href="#">Video</a></li>
         </ul>
     </nav>
 
     <div class="breaking">
-        <span>🔴 BREAKING:</span> FCO Expands Operations to Protect American Workers — Critics Call It "Election Year Enforcement"
+        <span class="breaking-label">Breaking</span>
+        <span>FCO Expands Operations to Protect American Workers — Dems Cry "Election Interference"</span>
     </div>
 
     <main class="container">
-        <section class="lead-story">
-            <div class="lead-story-image">[Image: FCO officers at worksite]</div>
-            <div class="lead-story-content">
-                <span class="category-label">Exclusive</span>
-                <h1>Federal Compliance Office Launches Major Effort to Protect American Jobs</h1>
-                <p>The FCO announced expanded operations in 12 states Tuesday, targeting employers who have been undercutting American workers by hiring unregistered labor. "This is about protecting hardworking Americans," said FCO Director Reynolds. Democrats immediately attacked the move as "politically motivated."</p>
-                <p class="byline">By Staff Report | October 15, 2028</p>
+        <section class="hero-section">
+            <article class="hero-main">
+                <div class="hero-image">[Image: FCO agents at worksite checkpoint]</div>
+                <div class="hero-content">
+                    <h1>Federal Compliance Office Launches Major Operation to Protect American Jobs</h1>
+                    <p>The FCO announced expanded operations in 12 states Tuesday, targeting employers who undercut American workers with unregistered labor. "This is about protecting hardworking Americans," said Director Reynolds. Democrats immediately attacked the move as "politically motivated" — the same talking point they use every time laws are enforced.</p>
+                    <p class="byline">By Staff Report | October 15, 2028</p>
+                </div>
+            </article>
+
+            <aside class="hero-sidebar">
+                <div class="sidebar-card">
+                    <span class="label">Politics</span>
+                    <h3><a href="#">Radical City Council Blocked From Obstructing Federal Agents</a></h3>
+                </div>
+                <div class="sidebar-card">
+                    <span class="label">Economy</span>
+                    <h3><a href="#">AI Killing Middle Class Jobs While Tech Billionaires Get Richer</a></h3>
+                </div>
+                <div class="sidebar-card">
+                    <span class="label">Faith</span>
+                    <h3><a href="#">Church Attendance Surges as Americans Return to Their Roots</a></h3>
+                </div>
+            </aside>
+        </section>
+
+        <h2 class="section-header">Top Stories</h2>
+        <div class="story-grid">
+            <article class="story-card">
+                <div class="story-card-content">
+                    <span class="label">Investigation</span>
+                    <h2><a href="#">Activist Groups Using AI to Help People Evade Law Enforcement</a></h2>
+                    <p>A Patriot Wire investigation reveals radical organizers deploying sophisticated AI to obstruct federal operations.</p>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <div class="story-card-content">
+                    <span class="label">Labor</span>
+                    <h2><a href="#">Union Members Reject Open-Borders Activists, Vote Neutral</a></h2>
+                    <p>Workers' Collective votes down resolution pushed by progressive members. "We represent workers," says member.</p>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <div class="story-card-content">
+                    <span class="label">Local</span>
+                    <h2><a href="#">Small Business Owner: "I Couldn't Compete Against Illegal Labor"</a></h2>
+                    <p>40-year-old Millbrook grocery closes its doors. Owner blames unfair competition from employers skirting the law.</p>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <div class="story-card-content">
+                    <span class="label">Crime</span>
+                    <h2><a href="#">Police Chief's Denial Raises More Questions Than Answers</a></h2>
+                    <p>City Watch leadership claims no FCO cooperation, but sources suggest information sharing continues.</p>
+                </div>
+            </article>
+        </div>
+
+        <section class="opinion-section">
+            <article class="opinion-featured">
+                <span class="label">Opinion</span>
+                <h2>The Compliance Crackdown Is Long Overdue</h2>
+                <p class="author">By Tucker Hammond, Senior Contributor</p>
+                <p>For years, Americans have been told that enforcing our own laws is somehow wrong. That protecting American jobs is "xenophobic." That communities wanting to feel safe in their own neighborhoods are "fearmongers." The FCO expansion isn't about politics—it's about finally, finally putting American workers first. The only people upset are those who benefit from cheap, exploitable labor.</p>
+            </article>
+
+            <div class="trending">
+                <h3>Trending Now</h3>
+                <ol>
+                    <li><a href="#">What the Media Won't Tell You About the FCO Expansion</a></li>
+                    <li><a href="#">Democrat Mayor Exposed: Secret Sanctuary Policy Revealed</a></li>
+                    <li><a href="#">AI Assistants: Convenience or Surveillance Tool?</a></li>
+                    <li><a href="#">Your Rights During an FCO Checkpoint — Know the Law</a></li>
+                    <li><a href="#">Election 2028: The Stakes Have Never Been Higher</a></li>
+                </ol>
             </div>
         </section>
 
-        <h3 class="section-header">Top Stories</h3>
+        <h2 class="section-header">Tech Watch</h2>
         <div class="story-grid">
             <article class="story-card">
                 <div class="story-card-content">
-                    <span class="category-label">Politics</span>
-                    <h2><a href="#">Radical City Council Tries to Block Federal Law Enforcement</a></h2>
-                    <p>In Millbrook, liberal council members attempted to pass a resolution preventing city cooperation with federal compliance efforts. The measure failed after residents pushed back.</p>
+                    <span class="label">Privacy</span>
+                    <h2><a href="#">Is Your AI Assistant Spying on You? What Experts Say</a></h2>
+                    <p>Millions use AI daily, but how much data are these tools really collecting?</p>
                 </div>
             </article>
 
             <article class="story-card">
                 <div class="story-card-content">
-                    <span class="category-label">Economy</span>
-                    <h2><a href="#">AI Killing Jobs? New Report Shows Automation Hitting Working Class Hardest</a></h2>
-                    <p>While tech elites celebrate AI, a new study reveals that automation is eliminating positions in manufacturing and service industries at an alarming rate.</p>
+                    <span class="label">Big Tech</span>
+                    <h2><a href="#">Silicon Valley's AI Push Is About Control, Not Convenience</a></h2>
+                    <p>The same companies censoring conservatives now want AI in every home.</p>
                 </div>
             </article>
 
             <article class="story-card">
                 <div class="story-card-content">
-                    <span class="category-label">Faith</span>
-                    <h2><a href="#">Churches See Surge in Attendance as Americans Seek Answers</a></h2>
-                    <p>With the country divided, many are returning to their faith communities. But some churches are drawing controversy for sheltering those avoiding compliance checks.</p>
-                </div>
-            </article>
-        </div>
-
-        <h3 class="section-header">From Your Community</h3>
-        <div class="story-grid">
-            <article class="story-card">
-                <div class="story-card-content">
-                    <span class="category-label">Local</span>
-                    <h2><a href="#">Union Members Reject Activist Pressure, Vote to Stay Neutral</a></h2>
-                    <p>Workers' Collective members in Millbrook voted down a resolution that would have aligned them with open-borders activists. "We're here to represent workers," said one member.</p>
+                    <span class="label">Jobs</span>
+                    <h2><a href="#">Working Class Hammered as AI Automates Away Livelihoods</a></h2>
+                    <p>Study shows automation hitting factory and service jobs hardest while executives profit.</p>
                 </div>
             </article>
 
             <article class="story-card">
                 <div class="story-card-content">
-                    <span class="category-label">Crime</span>
-                    <h2><a href="#">Police Chief Denies Cooperation with Feds, But Questions Remain</a></h2>
-                    <p>Local police leadership claims officers aren't involved in compliance operations, but sources say information sharing continues behind closed doors.</p>
-                </div>
-            </article>
-
-            <article class="story-card">
-                <div class="story-card-content">
-                    <span class="category-label">Business</span>
-                    <h2><a href="#">Small Business Owner: "I Had to Close Because I Couldn't Compete"</a></h2>
-                    <p>A 40-year-old grocery store in Millbrook's Eastside shutters after years of competition from employers using cheaper unregistered labor.</p>
-                </div>
-            </article>
-        </div>
-
-        <div class="opinion-banner">
-            <span class="category-label" style="background: var(--accent-red);">Opinion</span>
-            <h3>The Compliance Crackdown Is Long Overdue</h3>
-            <p class="author">By Tucker Hammond, Senior Contributor</p>
-            <p style="margin-top: 0.75rem; opacity: 0.9;">For too long, Americans have been told that enforcing our laws is somehow wrong. The FCO expansion isn't about politics—it's about finally putting American workers first.</p>
-        </div>
-
-        <h3 class="section-header">Tech Watch</h3>
-        <div class="story-grid">
-            <article class="story-card">
-                <div class="story-card-content">
-                    <span class="category-label">Tech</span>
-                    <h2><a href="#">Are AI Assistants Spying on You? What You Need to Know</a></h2>
-                    <p>Millions of Americans now use AI assistants daily, but experts warn that these tools may be collecting more data than users realize.</p>
-                </div>
-            </article>
-
-            <article class="story-card">
-                <div class="story-card-content">
-                    <span class="category-label">Investigation</span>
-                    <h2><a href="#">Activist Groups Using AI to Coordinate Against Law Enforcement</a></h2>
-                    <p>A Patriot Wire investigation reveals that radical organizers are deploying sophisticated AI tools to evade compliance operations and obstruct federal agents.</p>
-                </div>
-            </article>
-
-            <article class="story-card">
-                <div class="story-card-content">
-                    <span class="category-label">Opinion</span>
-                    <h2><a href="#">Big Tech's AI Push Is About Control, Not Convenience</a></h2>
-                    <p>Commentary: The same companies censoring conservative voices are now putting AI assistants in every home. Coincidence?</p>
+                    <span class="label">Analysis</span>
+                    <h2><a href="#">Why the AI Bill Stalled: Big Tech's Lobbying Machine Exposed</a></h2>
+                    <p>Bipartisan regulation killed by industry pressure. Follow the money.</p>
                 </div>
             </article>
         </div>
@@ -367,7 +622,7 @@
 
     <footer>
         <p>© 2028 The Patriot Wire Media Group. All Rights Reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.7;">Fair. Balanced. American.</p>
+        <p class="tagline">Fair. Balanced. American.</p>
     </footer>
 </body>
 </html>

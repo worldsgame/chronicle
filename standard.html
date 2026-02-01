@@ -13,6 +13,7 @@
             --text-secondary: #333;
             --text-muted: #666;
             --border-color: #ccc;
+            --border-light: #e5e5e5;
             --bg-primary: #fff;
             --accent: #326891;
         }
@@ -44,7 +45,7 @@
 
         .masthead-title {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
         }
@@ -62,6 +63,7 @@
             border-bottom: 1px solid var(--border-color);
             padding: 0.5rem 1rem;
             font-family: 'Inter', sans-serif;
+            overflow-x: auto;
         }
 
         nav ul {
@@ -69,6 +71,7 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
+            min-width: max-content;
         }
 
         nav a {
@@ -76,88 +79,223 @@
             text-decoration: none;
             font-size: 0.8rem;
             font-weight: 500;
+            white-space: nowrap;
         }
 
         nav a:hover { text-decoration: underline; }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1.5rem 1rem;
         }
 
-        .headline-section {
-            border-bottom: 1px solid var(--border-color);
+        /* Lead Section - Complex Grid */
+        .lead-section {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 1.5rem;
             padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 1.5rem;
         }
 
-        .main-headline h1 {
+        .lead-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .lead-story {
+            grid-column: span 2;
+        }
+
+        .lead-story h1 {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 0.75rem;
         }
 
-        .main-headline .summary {
-            font-size: 1.15rem;
+        .lead-story .summary {
+            font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
         }
 
-        .main-headline .byline {
+        .lead-story .byline {
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
         }
 
-        .story-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+        .lead-secondary {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
         }
 
-        @media (max-width: 768px) {
-            .story-grid { grid-template-columns: 1fr; }
-            .main-headline h1 { font-size: 1.8rem; }
-        }
-
-        .story-grid article {
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .story-grid h2 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.1rem;
+        .lead-secondary h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: 0.5rem;
         }
 
-        .story-grid h2 a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .story-grid h2 a:hover { text-decoration: underline; }
-
-        .story-grid p {
+        .lead-secondary p {
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
-        .story-grid .byline {
+        .lead-secondary .byline {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             margin-top: 0.5rem;
         }
 
-        .section-header {
+        .lead-sidebar {
+            border-left: 1px solid var(--border-color);
+            padding-left: 1.5rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .sidebar-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .sidebar-header {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-section h3 a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .sidebar-section h3 a:hover { text-decoration: underline; }
+
+        .sidebar-section p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mid Section - 3 Column */
+        .mid-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .mid-section article {
+            padding-right: 1.5rem;
+            border-right: 1px solid var(--border-light);
+        }
+
+        .mid-section article:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .mid-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .mid-section h2 a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .mid-section h2 a:hover { text-decoration: underline; }
+
+        .mid-section p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .mid-section .byline {
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Bottom Section - Featured + List */
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .featured-opinion {
+            background: #f7f7f7;
+            padding: 1.5rem;
+        }
+
+        .featured-opinion h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-opinion .author {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .featured-opinion p {
+            color: var(--text-secondary);
+        }
+
+        .quick-reads h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
@@ -167,24 +305,26 @@
             border-bottom: 2px solid var(--accent);
         }
 
-        .opinion-box {
-            background: #f7f7f7;
-            padding: 1.5rem;
-            margin-top: 2rem;
+        .quick-reads ul {
+            list-style: none;
         }
 
-        .opinion-box h3 {
+        .quick-reads li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .quick-reads li:last-child { border-bottom: none; }
+
+        .quick-reads a {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            line-height: 1.4;
         }
 
-        .opinion-box .author {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 500;
-        }
+        .quick-reads a:hover { text-decoration: underline; }
 
         footer {
             text-align: center;
@@ -194,6 +334,65 @@
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
             margin-top: 2rem;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .lead-section {
+                grid-template-columns: 1fr;
+            }
+            .lead-sidebar {
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding-left: 0;
+                padding-top: 1.5rem;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            .sidebar-section {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            .masthead-title { font-size: 2rem; }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .lead-main {
+                grid-template-columns: 1fr;
+            }
+            .lead-story {
+                grid-column: span 1;
+            }
+            .lead-story h1 { font-size: 1.6rem; }
+            .lead-sidebar {
+                grid-template-columns: 1fr;
+            }
+            .mid-section {
+                grid-template-columns: 1fr;
+            }
+            .mid-section article {
+                padding-right: 0;
+                border-right: none;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .mid-section article:last-child {
+                border-bottom: none;
+            }
+            .bottom-section {
+                grid-template-columns: 1fr;
+            }
+            .masthead-title { font-size: 1.6rem; }
+            .masthead-top { flex-direction: column; gap: 0.25rem; }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .container { padding: 1rem 0.75rem; }
+            nav ul { justify-content: flex-start; }
         }
     </style>
 </head>
@@ -216,91 +415,96 @@
             <li><a href="#">Technology</a></li>
             <li><a href="#">Opinion</a></li>
             <li><a href="#">Science</a></li>
+            <li><a href="#">Health</a></li>
         </ul>
     </nav>
 
     <main class="container">
-        <section class="headline-section">
-            <article class="main-headline">
-                <h1>Federal Compliance Operations Expand to 12 New States Ahead of Election</h1>
-                <p class="summary">The Federal Compliance Office announced Tuesday that it would extend enforcement operations to a dozen additional states, a significant escalation that critics say is designed to influence turnout in contested districts.</p>
-                <p class="byline">By Michael Torres and Jennifer Walsh | Oct. 15, 2028</p>
+        <section class="lead-section">
+            <div class="lead-main">
+                <article class="lead-story">
+                    <span class="section-label">Breaking News</span>
+                    <h1>Federal Compliance Operations Expand to 12 New States Ahead of Election</h1>
+                    <p class="summary">The Federal Compliance Office announced Tuesday that it would extend enforcement operations to a dozen additional states, a significant escalation that critics say is designed to influence turnout in contested districts. The expansion, which begins immediately, will nearly double the agency's operational footprint.</p>
+                    <p class="byline">By Michael Torres and Jennifer Walsh | Oct. 15, 2028, 2:34 p.m. ET</p>
+                </article>
+
+                <article class="lead-secondary">
+                    <span class="section-label">Analysis</span>
+                    <h2>What the Compliance Expansion Means for Swing States</h2>
+                    <p>Political analysts say the timing and geography of the FCO's announcement is unlikely to be coincidental, with operations concentrated in areas that could determine control of Congress.</p>
+                    <p class="byline">By Rachel Morrison</p>
+                </article>
+
+                <article class="lead-secondary">
+                    <span class="section-label">Technology</span>
+                    <h2>The Algorithms Behind the Crackdown: How AI Decides Who Gets Flagged</h2>
+                    <p>An investigation into the predictive systems reveals technology that is powerful, opaque, and nearly impossible to challenge in court.</p>
+                    <p class="byline">By Investigation Team</p>
+                </article>
+            </div>
+
+            <aside class="lead-sidebar">
+                <div class="sidebar-section">
+                    <span class="sidebar-header">From the Heartland</span>
+                    <h3><a href="#">In Millbrook, a City Council Confronts the Limits of Local Power</a></h3>
+                    <p>A small Midwestern city's debate reflects national tensions.</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-header">Labor</span>
+                    <h3><a href="#">Unions Split on Immigration: Solidarity vs. Self-Interest</a></h3>
+                    <p>The Workers' Collective's neutrality vote reflects a broader divide.</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-header">Community</span>
+                    <h3><a href="#">Churches See Record Attendance Amid Uncertainty</a></h3>
+                    <p>Houses of worship become anchors for anxious communities.</p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="mid-section">
+            <article>
+                <span class="section-label">Business</span>
+                <h2><a href="#">AI Adoption Surges Among Small Businesses, But Workers Express Concerns</a></h2>
+                <p>Nearly 60% of businesses with fewer than 50 employees now use AI assistants—up from 12% two years ago. But employees say the technology is increasingly used for surveillance.</p>
+                <p class="byline">By David Park</p>
+            </article>
+
+            <article>
+                <span class="section-label">Politics</span>
+                <h2><a href="#">Early Voting Begins in 18 States Amid Heightened Security</a></h2>
+                <p>Election officials report record numbers in several states, even as some voters express concerns about safety at polling locations near compliance operations.</p>
+                <p class="byline">By Sarah Chen</p>
+            </article>
+
+            <article>
+                <span class="section-label">Policy</span>
+                <h2><a href="#">Study Finds Operations Disproportionately Target Working-Class Areas</a></h2>
+                <p>New research from Columbia finds FCO operations concentrated in zip codes with median incomes below the national average.</p>
+                <p class="byline">By David Okonkwo</p>
             </article>
         </section>
 
-        <section>
-            <h3 class="section-header">National</h3>
-            <div class="story-grid">
-                <article>
-                    <h2><a href="#">AI Regulation Bill Stalls as Industry Groups Mount Opposition</a></h2>
-                    <p>The Artificial Intelligence Accountability Act, once seen as having bipartisan support, faces an uncertain future as technology companies ramp up lobbying efforts.</p>
-                    <p class="byline">By Sarah Chen</p>
-                </article>
+        <section class="bottom-section">
+            <article class="featured-opinion">
+                <span class="section-label">Opinion</span>
+                <h2>The Compliance Expansion Is a Stress Test for Democracy</h2>
+                <p class="author">By The Editorial Board</p>
+                <p>Whatever one's views on immigration enforcement, the timing of this expansion—three weeks before a national election—raises questions that deserve answers. The administration's assurance that operations are "routine" strains credulity. We urge Congress to demand transparency before Election Day.</p>
+            </article>
 
-                <article>
-                    <h2><a href="#">Study Finds Compliance Operations Disproportionately Target Working-Class Communities</a></h2>
-                    <p>A new analysis by researchers at Columbia University found that FCO operations are concentrated in zip codes with median incomes below the national average.</p>
-                    <p class="byline">By David Okonkwo</p>
-                </article>
-
-                <article>
-                    <h2><a href="#">Early Voting Begins in 18 States Amid Heightened Security Concerns</a></h2>
-                    <p>Election officials report record early voting numbers in several states, even as some voters express concerns about safety at polling locations.</p>
-                    <p class="byline">By Rachel Morrison</p>
-                </article>
-            </div>
-        </section>
-
-        <section style="margin-top: 2rem;">
-            <h3 class="section-header">From the Heartland</h3>
-            <div class="story-grid">
-                <article>
-                    <h2><a href="#">In Millbrook, a City Council Confronts the Limits of Local Power</a></h2>
-                    <p>A small Midwestern city's debate over compliance cooperation reflects a national tension between federal authority and community values.</p>
-                    <p class="byline">By Margaret Chen | Millbrook</p>
-                </article>
-
-                <article>
-                    <h2><a href="#">Churches Become Unlikely Anchors for Anxious Communities</a></h2>
-                    <p>Across the country, houses of worship are seeing attendance surge as people seek community amid uncertainty. But that visibility comes with risks.</p>
-                    <p class="byline">By Thomas Bradley</p>
-                </article>
-
-                <article>
-                    <h2><a href="#">Labor Unions Split on Immigration: Solidarity vs. Self-Interest</a></h2>
-                    <p>The Workers' Collective's decision to remain neutral on compliance issues reflects a broader divide within the American labor movement.</p>
-                    <p class="byline">By James Morrison</p>
-                </article>
-            </div>
-        </section>
-
-        <div class="opinion-box">
-            <h3 class="section-header">Opinion</h3>
-            <h3>The Compliance Expansion Is a Stress Test for Democracy</h3>
-            <p class="author">By Editorial Board</p>
-            <p style="margin-top: 0.75rem; color: var(--text-secondary);">Whatever one's views on immigration enforcement, the timing of this expansion—three weeks before a national election—raises questions that deserve answers.</p>
-        </div>
-
-        <section style="margin-top: 2rem;">
-            <h3 class="section-header">Technology</h3>
-            <div class="story-grid">
-                <article>
-                    <h2><a href="#">AI Assistants Are Everywhere. Are We Ready for What That Means?</a></h2>
-                    <p>Two years into the AI assistant boom, researchers are beginning to study how constant AI access is changing the way we think, work, and relate to each other.</p>
-                    <p class="byline">By Linda Park</p>
-                </article>
-
-                <article>
-                    <h2><a href="#">How Activists Are Using AI to Stay One Step Ahead of Enforcement</a></h2>
-                    <p>Community organizers have begun deploying AI tools for early warning systems and coordination. Authorities are taking notice.</p>
-                    <p class="byline">By Kevin Oduya</p>
-                </article>
-
-                <article>
-                    <h2><a href="#">The Algorithmic Border: How AI Decides Who Gets Flagged</a></h2>
-                    <p>An investigation into the predictive systems the FCO uses to identify targets reveals a technology that is powerful, opaque, and difficult to challenge.</p>
-                    <p class="byline">By Investigation Team</p>
-                </article>
+            <div class="quick-reads">
+                <h3>Most Read</h3>
+                <ul>
+                    <li><a href="#">What to Know About Your Rights During a Compliance Check</a></li>
+                    <li><a href="#">How Activists Are Using AI to Stay Ahead of Enforcement</a></li>
+                    <li><a href="#">Election 2028: Where the Candidates Stand on AI Regulation</a></li>
+                    <li><a href="#">Opinion: We Need to Talk About What's Happening</a></li>
+                    <li><a href="#">Millbrook's Eastside Grocery Closes After 40 Years</a></li>
+                </ul>
             </div>
         </section>
     </main>
