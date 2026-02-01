@@ -125,6 +125,133 @@
             animation: pulse 1.5s infinite;
         }
 
+        .poll-tracker {
+            background: linear-gradient(90deg, #0a1628 0%, #1a2a4a 100%);
+            padding: 1rem 1.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .poll-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .poll-header {
+            font-family: "Oswald", sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .poll-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .poll-item {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .poll-race {
+            font-family: "Oswald", sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .poll-matchup {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .candidate {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 3px;
+        }
+
+        .candidate.rep { background: rgba(184, 60, 58, 0.3); border: 1px solid #B83C3A; }
+        .candidate.dem { background: rgba(46, 90, 135, 0.3); border: 1px solid #2E5A87; }
+        .candidate.yes { background: rgba(74, 124, 89, 0.3); border: 1px solid #4A7C59; }
+        .candidate.no { background: rgba(124, 74, 74, 0.3); border: 1px solid #7C4A4A; }
+        .candidate.leading { border-width: 2px; box-shadow: 0 0 10px rgba(184, 60, 58, 0.3); }
+
+        .candidate .name {
+            display: block;
+            font-family: "Oswald", sans-serif;
+            font-size: 0.75rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .candidate .pct {
+            display: block;
+            font-family: "Oswald", sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .vs {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+        }
+
+        .poll-note {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .poll-note.win { color: #6fbf7f; }
+        .poll-note.warn { color: #bf9f6f; }
+
+        .poll-footer {
+            font-family: "Open Sans", sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .poll-footer a { color: var(--accent-gold); text-decoration: none; }
+        .poll-footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .poll-grid { grid-template-columns: 1fr; }
+            .poll-tracker { padding: 1rem; }
+        }
+
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
@@ -500,6 +627,60 @@
     <div class="breaking">
         <span class="breaking-label">Breaking</span>
         <span>FCO Expands Operations to Protect American Workers — Dems Cry "Election Interference"</span>
+    </div>
+
+    <div class="poll-tracker">
+        <div class="poll-container">
+            <div class="poll-header"><span class="pulse-dot"></span> LIVE ELECTION TRACKER</div>
+            <div class="poll-grid">
+                <div class="poll-item">
+                    <div class="poll-race">PRESIDENT</div>
+                    <div class="poll-matchup">
+                        <div class="candidate rep">
+                            <span class="name">MORRISON (R)</span>
+                            <span class="pct">45%</span>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="candidate dem">
+                            <span class="name">CHEN (D)</span>
+                            <span class="pct">47%</span>
+                        </div>
+                    </div>
+                    <div class="poll-note">Gap narrowing: Was D+5 last month</div>
+                </div>
+                <div class="poll-item">
+                    <div class="poll-race">CONGRESS (YOUR DISTRICT)</div>
+                    <div class="poll-matchup">
+                        <div class="candidate rep leading">
+                            <span class="name">BRADLEY (R)</span>
+                            <span class="pct">48%</span>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="candidate dem">
+                            <span class="name">WALSH (D)</span>
+                            <span class="pct">44%</span>
+                        </div>
+                    </div>
+                    <div class="poll-note win">Bradley leads +4 ▲</div>
+                </div>
+                <div class="poll-item">
+                    <div class="poll-race">PROP 8: AI OVERSIGHT</div>
+                    <div class="poll-matchup">
+                        <div class="candidate no">
+                            <span class="name">NO</span>
+                            <span class="pct">41%</span>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="candidate yes">
+                            <span class="name">YES</span>
+                            <span class="pct">52%</span>
+                        </div>
+                    </div>
+                    <div class="poll-note warn">Big Tech regulation likely to pass</div>
+                </div>
+            </div>
+            <div class="poll-footer">21 DAYS TO ELECTION • Updated hourly • <a href="#">Full polling data →</a></div>
+        </div>
     </div>
 
     <main class="container">
