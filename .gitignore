@@ -1,0 +1,16 @@
+# Generated output - rebuild with: node newspaper/build.js
+newspaper/dist/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

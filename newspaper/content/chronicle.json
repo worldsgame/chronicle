@@ -1,0 +1,73 @@
+{
+  "breaking": "Federal Compliance Office announces expanded operations in tri-county area through November",
+  "masthead": {
+    "date": "Tuesday, October 15, 2028",
+    "title": "The Millbrook Chronicle",
+    "tagline": "Serving the Millbrook Community Since 1892"
+  },
+  "nav": ["Local", "Nation", "Business", "Technology", "Opinion", "Community"],
+  "leadStory": {
+    "image": "Municipal Building at dusk",
+    "category": "Local Government",
+    "title": "Council Deadlocked on Compliance Cooperation Resolution",
+    "author": "Margaret Chen",
+    "date": "October 15, 2028",
+    "paragraphs": [
+      "A proposed resolution that would limit Millbrook city resources from being used in Federal Compliance Office operations failed to reach a vote Tuesday night after three hours of heated testimony from residents on both sides of the issue.",
+      "Council members Garcia and Thompson expressed support for the measure, while members Bradley and Kowalski argued it would put the city at risk of losing federal funding. Mayor Richardson has not indicated which way she would vote.",
+      "\"This isn't about politics,\" said resident Ana Morales, who spoke during public comment. \"This is about whether my neighbors can walk to the grocery store.\""
+    ]
+  },
+  "mainStories": [
+    {
+      "category": "Technology",
+      "title": "AI Adoption Surges Among Local Small Businesses, But Workers Express Concerns",
+      "author": "David Park",
+      "date": "October 15, 2028",
+      "summary": "Nearly 60% of Millbrook businesses with fewer than 50 employees now use some form of AI assistant, according to a new Chamber of Commerce survey—up from just 12% two years ago. But workers at several local companies say the technology is being used to monitor productivity and flag \"anomalies\" in ways that feel invasive."
+    },
+    {
+      "category": "Community",
+      "title": "The Gathering on Mill Street Sees Record Attendance Amid Uncertainty",
+      "author": "Sarah Williams",
+      "date": "October 14, 2028",
+      "summary": "Father Thomas Carroll says he's never seen the pews so full. \"People are looking for community,\" he said after Sunday services that drew over 400 attendees—nearly double the usual number. The congregation has also quietly expanded its emergency assistance fund, though Carroll declined to discuss specifics."
+    },
+    {
+      "category": "Labor",
+      "title": "Workers' Collective Votes to Maintain Neutrality on Compliance Issues",
+      "author": "James Morrison",
+      "date": "October 14, 2028",
+      "summary": "In a contentious meeting Saturday, members of Local 847 of the Workers' Collective voted 234-189 to maintain the union's official neutrality on immigration enforcement issues. The decision disappointed some members who had pushed for a solidarity resolution, while others argued the union should focus on workplace issues."
+    },
+    {
+      "category": "Public Safety",
+      "title": "City Watch Chief Addresses Confusion Over Federal Coordination",
+      "author": "Robert Torres",
+      "date": "October 13, 2028",
+      "summary": "Police Chief Diana Oyelaran held a press conference Friday to clarify the department's relationship with federal agencies after social media posts claimed local officers were participating in FCO operations. \"Our officers are focused on local public safety,\" Oyelaran said. \"We are not conducting compliance enforcement.\" She declined to say whether the department shares information with federal agencies."
+    }
+  ],
+  "mostRead": [
+    "What to know about your rights during a compliance check",
+    "Eastside grocery store closes after 40 years",
+    "Election 2028: Where the candidates stand on AI regulation",
+    "School board approves AI tutoring pilot program",
+    "Opinion: We need to talk about what's happening on 4th Street"
+  ],
+  "calendar": [
+    "Know Your Rights Workshop — Oct 17, 7pm, Mill Street Community Center",
+    "City Council Meeting — Oct 22, 6pm, Municipal Building",
+    "Millbrook Harvest Festival — Oct 26-27, Downtown",
+    "Early Voting Begins — Oct 28"
+  ],
+  "weather": [
+    { "label": "Today", "conditions": "Partly cloudy, high 58°F" },
+    { "label": "Tonight", "conditions": "Clear, low 42°F" },
+    { "label": "Tomorrow", "conditions": "Sunny, high 62°F" }
+  ],
+  "footer": {
+    "copyright": "© 2028 The Millbrook Chronicle. All rights reserved.",
+    "tagline": "A publication serving Millbrook since 1892."
+  }
+}

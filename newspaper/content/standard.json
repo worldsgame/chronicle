@@ -1,0 +1,112 @@
+{
+  "masthead": {
+    "date": "Tuesday, October 15, 2028",
+    "edition": "New York Edition",
+    "title": "The National Standard",
+    "motto": "All the News That Matters"
+  },
+  "nav": ["U.S.", "World", "Politics", "Business", "Technology", "Opinion", "Science", "Health"],
+  "polls": {
+    "header": "Election 2028 Poll Tracker",
+    "items": [
+      {
+        "label": "President",
+        "bars": [
+          { "class": "civic", "width": "47%", "text": "Chen (C) 47%" },
+          { "class": "liberty", "width": "45%", "text": "Morrison (L) 45%" }
+        ],
+        "margin": "Margin: D+2 ▼1"
+      },
+      {
+        "label": "Congress (Local)",
+        "bars": [
+          { "class": "civic", "width": "44%", "text": "Walsh (C) 44%" },
+          { "class": "liberty", "width": "48%", "text": "Bradley (L) 48%" }
+        ],
+        "margin": "Margin: R+4 ▲2"
+      },
+      {
+        "label": "Prop 8: AI Oversight",
+        "bars": [
+          { "class": "yes", "width": "52%", "text": "Yes 52%" },
+          { "class": "no", "width": "41%", "text": "No 41%" }
+        ],
+        "margin": "Undecided: 7%"
+      }
+    ],
+    "updated": "Updated Oct 15, 2028 • ±3.1% margin of error"
+  },
+  "leadStory": {
+    "category": "Breaking News",
+    "title": "Federal Compliance Operations Expand to 12 New States Ahead of Election",
+    "summary": "The Federal Compliance Office announced Tuesday that it would extend enforcement operations to a dozen additional states, a significant escalation that critics say is designed to influence turnout in contested districts. The expansion, which begins immediately, will nearly double the agency's operational footprint.",
+    "authors": "Michael Torres and Jennifer Walsh",
+    "date": "Oct. 15, 2028, 2:34 p.m. ET"
+  },
+  "leadSecondary": [
+    {
+      "category": "Analysis",
+      "title": "What the Compliance Expansion Means for Swing States",
+      "summary": "Political analysts say the timing and geography of the FCO's announcement is unlikely to be coincidental, with operations concentrated in areas that could determine control of Congress.",
+      "author": "Rachel Morrison"
+    },
+    {
+      "category": "Technology",
+      "title": "The Algorithms Behind the Crackdown: How AI Decides Who Gets Flagged",
+      "summary": "An investigation into the predictive systems reveals technology that is powerful, opaque, and nearly impossible to challenge in court.",
+      "author": "Investigation Team"
+    }
+  ],
+  "sidebar": [
+    {
+      "header": "From the Heartland",
+      "title": "In Millbrook, a City Council Confronts the Limits of Local Power",
+      "summary": "A small Midwestern city's debate reflects national tensions."
+    },
+    {
+      "header": "Labor",
+      "title": "Unions Split on Immigration: Solidarity vs. Self-Interest",
+      "summary": "The Workers' Collective's neutrality vote reflects a broader divide."
+    },
+    {
+      "header": "Community",
+      "title": "Churches See Record Attendance Amid Uncertainty",
+      "summary": "Houses of worship become anchors for anxious communities."
+    }
+  ],
+  "midSection": [
+    {
+      "category": "Business",
+      "title": "AI Adoption Surges Among Small Businesses, But Workers Express Concerns",
+      "summary": "Nearly 60% of businesses with fewer than 50 employees now use AI assistants—up from 12% two years ago. But employees say the technology is increasingly used for surveillance.",
+      "author": "David Park"
+    },
+    {
+      "category": "Politics",
+      "title": "Early Voting Begins in 18 States Amid Heightened Security",
+      "summary": "Election officials report record numbers in several states, even as some voters express concerns about safety at polling locations near compliance operations.",
+      "author": "Sarah Chen"
+    },
+    {
+      "category": "Policy",
+      "title": "Study Finds Operations Disproportionately Target Working-Class Areas",
+      "summary": "New research from Columbia finds FCO operations concentrated in zip codes with median incomes below the national average.",
+      "author": "David Okonkwo"
+    }
+  ],
+  "opinion": {
+    "title": "The Compliance Expansion Is a Stress Test for Democracy",
+    "author": "By The Editorial Board",
+    "content": "Whatever one's views on immigration enforcement, the timing of this expansion—three weeks before a national election—raises questions that deserve answers. The administration's assurance that operations are \"routine\" strains credulity. We urge Congress to demand transparency before Election Day."
+  },
+  "mostRead": [
+    "What to Know About Your Rights During a Compliance Check",
+    "How Activists Are Using AI to Stay Ahead of Enforcement",
+    "Election 2028: Where the Candidates Stand on AI Regulation",
+    "Opinion: We Need to Talk About What's Happening",
+    "Millbrook's Eastside Grocery Closes After 40 Years"
+  ],
+  "footer": {
+    "copyright": "© 2028 The National Standard Company. All Rights Reserved."
+  }
+}
