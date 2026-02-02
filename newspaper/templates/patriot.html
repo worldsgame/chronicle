@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{masthead.title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/patriot.css">
+</head>
+<body>
+    <div class="ticker">
+        <span class="ticker-content">
+            {{ticker}}
+        </span>
+    </div>
+
+    <header class="masthead">
+        <h1 class="masthead-title">The <span>Patriot</span> Wire</h1>
+        <div class="masthead-right">
+            <div>{{masthead.date}}</div>
+            <div class="masthead-tagline">{{masthead.tagline}}</div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            {{#nav}}
+            <li><a href="#">{{.}}</a></li>
+            {{/nav}}
+        </ul>
+    </nav>
+
+    <div class="breaking">
+        <span class="breaking-label">Breaking</span>
+        <span>{{breaking}}</span>
+    </div>
+
+    <div class="poll-tracker">
+        <div class="poll-container">
+            <div class="poll-header"><span class="pulse-dot"></span> {{polls.header}}</div>
+            <div class="poll-grid">
+                {{#polls.items}}
+                <div class="poll-item">
+                    <div class="poll-race">{{race}}</div>
+                    <div class="poll-matchup">
+                        <div class="candidate {{candidate1.class}}">
+                            <span class="name">{{candidate1.name}}</span>
+                            <span class="pct">{{candidate1.pct}}</span>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="candidate {{candidate2.class}}">
+                            <span class="name">{{candidate2.name}}</span>
+                            <span class="pct">{{candidate2.pct}}</span>
+                        </div>
+                    </div>
+                    <div class="poll-note {{noteClass}}">{{note}}</div>
+                </div>
+                {{/polls.items}}
+            </div>
+            <div class="poll-footer">{{polls.footer}}</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="hero-section">
+            <article class="hero-main">
+                <div class="hero-image">[Image: {{heroStory.image}}]</div>
+                <div class="hero-content">
+                    <h1>{{heroStory.title}}</h1>
+                    <p>{{heroStory.content}}</p>
+                    <p class="byline">{{heroStory.byline}}</p>
+                </div>
+            </article>
+
+            <aside class="hero-sidebar">
+                {{#heroSidebar}}
+                <div class="sidebar-card">
+                    <span class="label">{{category}}</span>
+                    <h3><a href="#">{{title}}</a></h3>
+                </div>
+                {{/heroSidebar}}
+            </aside>
+        </section>
+
+        <h2 class="section-header">Top Stories</h2>
+        <div class="story-grid">
+            {{#topStories}}
+            <article class="story-card">
+                <div class="story-card-content">
+                    <span class="label">{{category}}</span>
+                    <h2><a href="#">{{title}}</a></h2>
+                    <p>{{summary}}</p>
+                </div>
+            </article>
+            {{/topStories}}
+        </div>
+
+        <section class="opinion-section">
+            <article class="opinion-featured">
+                <span class="label">Opinion</span>
+                <h2>{{opinion.title}}</h2>
+                <p class="author">{{opinion.author}}</p>
+                <p>{{opinion.content}}</p>
+            </article>
+
+            <div class="trending">
+                <h3>Trending Now</h3>
+                <ol>
+                    {{#trending}}
+                    <li><a href="#">{{.}}</a></li>
+                    {{/trending}}
+                </ol>
+            </div>
+        </section>
+
+        <h2 class="section-header">Tech Watch</h2>
+        <div class="story-grid">
+            {{#techStories}}
+            <article class="story-card">
+                <div class="story-card-content">
+                    <span class="label">{{category}}</span>
+                    <h2><a href="#">{{title}}</a></h2>
+                    <p>{{summary}}</p>
+                </div>
+            </article>
+            {{/techStories}}
+        </div>
+    </main>
+
+    <footer>
+        <p>{{footer.copyright}}</p>
+        <p class="tagline">{{footer.tagline}}</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{masthead.title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/standard.css">
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead-top">
+            <span>{{masthead.date}}</span>
+            <span>{{masthead.edition}}</span>
+        </div>
+        <h1 class="masthead-title">{{masthead.title}}</h1>
+        <p class="masthead-motto">{{masthead.motto}}</p>
+    </header>
+
+    <nav>
+        <ul>
+            {{#nav}}
+            <li><a href="#">{{.}}</a></li>
+            {{/nav}}
+        </ul>
+    </nav>
+
+    <div class="poll-tracker">
+        <div class="poll-container">
+            <div class="poll-header">{{polls.header}}</div>
+            <div class="poll-grid">
+                {{#polls.items}}
+                <div class="poll-item">
+                    <div class="poll-label">{{label}}</div>
+                    <div class="poll-bars">
+                        {{#bars}}
+                        <div class="poll-bar {{class}}" style="width: {{width}}"><span>{{text}}</span></div>
+                        {{/bars}}
+                    </div>
+                    <div class="poll-margin">{{margin}}</div>
+                </div>
+                {{/polls.items}}
+            </div>
+            <div class="poll-updated">{{polls.updated}}</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="lead-section">
+            <div class="lead-main">
+                <article class="lead-story">
+                    <span class="section-label">{{leadStory.category}}</span>
+                    <h1>{{leadStory.title}}</h1>
+                    <p class="summary">{{leadStory.summary}}</p>
+                    <p class="byline">By {{leadStory.authors}} | {{leadStory.date}}</p>
+                </article>
+
+                {{#leadSecondary}}
+                <article class="lead-secondary">
+                    <span class="section-label">{{category}}</span>
+                    <h2>{{title}}</h2>
+                    <p>{{summary}}</p>
+                    <p class="byline">By {{author}}</p>
+                </article>
+                {{/leadSecondary}}
+            </div>
+
+            <aside class="lead-sidebar">
+                {{#sidebar}}
+                <div class="sidebar-section">
+                    <span class="sidebar-header">{{header}}</span>
+                    <h3><a href="#">{{title}}</a></h3>
+                    <p>{{summary}}</p>
+                </div>
+                {{/sidebar}}
+            </aside>
+        </section>
+
+        <section class="mid-section">
+            {{#midSection}}
+            <article>
+                <span class="section-label">{{category}}</span>
+                <h2><a href="#">{{title}}</a></h2>
+                <p>{{summary}}</p>
+                <p class="byline">By {{author}}</p>
+            </article>
+            {{/midSection}}
+        </section>
+
+        <section class="bottom-section">
+            <article class="featured-opinion">
+                <span class="section-label">Opinion</span>
+                <h2>{{opinion.title}}</h2>
+                <p class="author">{{opinion.author}}</p>
+                <p>{{opinion.content}}</p>
+            </article>
+
+            <div class="quick-reads">
+                <h3>Most Read</h3>
+                <ul>
+                    {{#mostRead}}
+                    <li><a href="#">{{.}}</a></li>
+                    {{/mostRead}}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>{{footer.copyright}}</p>
+    </footer>
+</body>
+</html>

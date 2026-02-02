@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{masthead.title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/chronicle.css">
+</head>
+<body>
+    <div class="breaking-bar">
+        <span>Breaking:</span> {{breaking}}
+    </div>
+
+    <header class="masthead">
+        <div class="masthead-date">{{masthead.date}}</div>
+        <h1 class="masthead-title">{{masthead.title}}</h1>
+        <p class="masthead-tagline">{{masthead.tagline}}</p>
+    </header>
+
+    <nav>
+        <ul>
+            {{#nav}}
+            <li><a href="#">{{.}}</a></li>
+            {{/nav}}
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="lead-story">
+            <div class="lead-image">
+                [Image: {{leadStory.image}}]
+            </div>
+            <div class="lead-content">
+                <span class="category-tag">{{leadStory.category}}</span>
+                <h1>{{leadStory.title}}</h1>
+                <p class="byline">By {{leadStory.author}} | {{leadStory.date}}</p>
+                {{#leadStory.paragraphs}}
+                <p>{{.}}</p>
+                {{/leadStory.paragraphs}}
+            </div>
+        </section>
+
+        <section class="section-grid">
+            <div class="main-stories">
+                {{#mainStories}}
+                <article>
+                    <span class="category-tag">{{category}}</span>
+                    <h2><a href="#">{{title}}</a></h2>
+                    <p class="byline">By {{author}} | {{date}}</p>
+                    <p>{{summary}}</p>
+                </article>
+                {{/mainStories}}
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Most Read</h3>
+                    <ul>
+                        {{#mostRead}}
+                        <li><a href="#">{{.}}</a></li>
+                        {{/mostRead}}
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Community Calendar</h3>
+                    <ul>
+                        {{#calendar}}
+                        <li><a href="#">{{.}}</a></li>
+                        {{/calendar}}
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Weather</h3>
+                    <p style="color: var(--text-secondary);">
+                        {{#weather}}
+                        <strong>{{label}}:</strong> {{conditions}}<br>
+                        {{/weather}}
+                    </p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>{{footer.copyright}}</p>
+        <p style="margin-top: 0.5rem;">{{footer.tagline}}</p>
+    </footer>
+</body>
+</html>
